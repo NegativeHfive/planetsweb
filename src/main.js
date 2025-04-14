@@ -10,13 +10,13 @@ renderer.setPixelRatio(window.devicePixelRatio)
 document.body.appendChild(renderer.domElement);
 
 //making camera
-const fov = 50
+const fov = 45
 const aspect = window.innerWidth / window.outerHeight
 const near = 0.1
 const far = 700
 
 const camera = new THREE.PerspectiveCamera(fov,aspect,near,far)
-camera.position.z = 10;
+camera.position.z = 8;
 
 //making a loader
 const loader = new THREE.TextureLoader()
@@ -28,11 +28,11 @@ scene.add(marsGroup)
 
 //making the geometry for the mars 
 const marsGeometry = new THREE.IcosahedronGeometry(1,20)
-const marsTexture = loader.load("/textures/mars.jpg")
+const marsTexture = loader.load("/textures/8k_mars.jpg")
 const marsMaterial = new THREE.MeshBasicMaterial({
-    map:marsTexture,
-    color : "orange"
-})
+  map: marsTexture,
+  color: "rgb(234, 176, 139)",
+});
 
 //increasing the sharpness
 marsTexture.anisotropy = renderer.capabilities.getMaxAnisotropy();
