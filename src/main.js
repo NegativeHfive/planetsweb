@@ -28,7 +28,7 @@ scene.add(marsGroup)
 
 //making the geometry for the mars 
 const marsGeometry = new THREE.IcosahedronGeometry(1,20)
-const marsTexture = loader.load("/public/textures/mars.jpg")
+const marsTexture = loader.load("/textures/mars.jpg")
 const marsMaterial = new THREE.MeshBasicMaterial({
     map:marsTexture,
     color : "orange"
