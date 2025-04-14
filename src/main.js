@@ -28,10 +28,10 @@ scene.add(marsGroup)
 
 //making the geometry for the mars 
 const marsGeometry = new THREE.IcosahedronGeometry(1,20)
-const marsTexture = loader.load("./src/textures/venus1.jpg")
+const marsTexture = loader.load("./src/textures/mars.jpg")
 const marsMaterial = new THREE.MeshBasicMaterial({
     map:marsTexture,
-    color : "whitesmoke"
+    color : "orange"
 })
 
 //increasing the sharpness
