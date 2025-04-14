@@ -4,16 +4,10 @@ import * as THREE from "three";
 
 const scene = new THREE.Scene()
 
-
 const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth , window.outerHeight);
+renderer.setSize(window.innerWidth , window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio)
 document.body.appendChild(renderer.domElement);
-
-const geometry = new THREE.SphereGeometry(15,32,16)
-const material = new THREE.MeshBasicMaterial({color : "red"})
-const sphere = new THREE.Mesh(geometry, material)
-scene.add(sphere)
 
 //making camera
 const fov = 50
@@ -22,10 +16,33 @@ const near = 0.1
 const far = 700
 
 const camera = new THREE.PerspectiveCamera(fov,aspect,near,far)
-camera.position.z = 100;
+camera.position.z = 10;
+
+//making a loader
+const loader = new THREE.TextureLoader()
+
+//mesh for mars
+const marsGroup = new THREE.Group()
+marsGroup.position.set(0,0,4)
+scene.add(marsGroup)
+
+//making the geometry for the mars 
+const marsGeometry = new THREE.IcosahedronGeometry(1,20)
+const marsTexture = loader.load("./src/textures/venus1.jpg")
+const marsMaterial = new THREE.MeshBasicMaterial({
+    map:marsTexture,
+    color : "whitesmoke"
+})
+
+//increasing the sharpness
+marsTexture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+const marsMesh = new THREE.Mesh(marsGeometry,marsMaterial);
+marsGroup.add(marsMesh)
 
 function animate(){
+    requestAnimationFrame(animate)
+    marsGroup.rotation.y += 0.001;
     renderer.render(scene,camera)
 }
 
-renderer.setAnimationLoop(animate)
+animate()
