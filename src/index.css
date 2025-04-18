@@ -1,6 +1,65 @@
+@font-face {
+  font-family: trail;
+  src: url(../src/fonts/Questrial-Regular.ttf);
+}
+
+@font-face {
+  font-family: mont;
+  src: url(../src/fonts/Montserrat-Bold.otf);
+}
+
+@font-face {
+  font-family: without;
+  src: url(../src/fonts/WithoutAltSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: boulder;
+  src: url(../src/fonts/Boulder-Bold.ttf);
+}
+
+
 body{
   margin: 0;
   padding: 0;
   background-color: black;
   color: aliceblue;
+}
+
+.navbar{
+  font-family: trail;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+}
+
+.navbar .information{
+  display: flex;
+  flex-direction: row;
+}
+
+.information{
+  width: 20%;
+  display: flex;
+  text-align: right;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: boulder;
+}
+
+.planet{
+  font-family: boulder;
+  font-size: 3em;
+  position: absolute;
+  display: flex;
+  text-align: center;
+  margin-left: 42%;
+  margin-top: -4%;
+}
+
+h1{
+  text-align: center;
 }

@@ -23,7 +23,7 @@ const loader = new THREE.TextureLoader()
 
 //mesh for mars
 const marsGroup = new THREE.Group()
-marsGroup.position.set(0,0,4)
+marsGroup.position.set(0,0,3)
 scene.add(marsGroup)
 
 //making the geometry for the mars 
@@ -31,7 +31,7 @@ const marsGeometry = new THREE.IcosahedronGeometry(1,20)
 const marsTexture = loader.load("/textures/8k_mars.jpg")
 const marsMaterial = new THREE.MeshBasicMaterial({
   map: marsTexture,
-  color: "rgb(234, 176, 139)",
+  color: "rgb(239, 179, 142)",
 });
 
 //increasing the sharpness
@@ -39,10 +39,28 @@ marsTexture.anisotropy = renderer.capabilities.getMaxAnisotropy();
 const marsMesh = new THREE.Mesh(marsGeometry,marsMaterial);
 marsGroup.add(marsMesh)
 
-function animate(){
-    requestAnimationFrame(animate)
-    marsGroup.rotation.y += 0.001;
-    renderer.render(scene,camera)
+
+//neptune
+const neptuneGroup = new THREE.Group()
+neptuneGroup.position.set(0,0,-20)
+scene.add(neptuneGroup)
+
+const neptuneGeometry = new THREE.IcosahedronGeometry(1,20)
+const neptuneTexture = loader.load("/textures/2k_neptune.jpg");
+const neptuneMaterial = new THREE.MeshBasicMaterial({
+  map: neptuneTexture,
+  color: "rgb(12, 40, 130)",
+});
+
+const neptuneMesh = new THREE.Mesh(neptuneGeometry,neptuneMaterial);
+neptuneGroup.add(neptuneMesh)
+
+function animate() {
+  requestAnimationFrame(animate);
+  marsGroup.rotation.y += 0.001;
+  neptuneMesh.rotation.y += 0.001;
+
+  renderer.render(scene, camera);
 }
 
-animate()
+animate();
