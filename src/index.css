@@ -18,12 +18,31 @@
   src: url(../src/fonts/Boulder-Bold.ttf);
 }
 
+@font-face {
+  font-family: playlist;
+  src: url(../src/fonts/Playlist\ Caps.otf);
+}
+
+@font-face {
+  font-family: soft;
+  src: url(../src/fonts/SOFTSUGARPLAIN.ttf);
+}
 
 body{
   margin: 0;
   padding: 0;
   background-color: black;
   color: aliceblue;
+  overflow-x: hidden;
+}
+
+canvas{
+  position: absolute;
+  top: 15%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .navbar{
@@ -34,6 +53,7 @@ body{
   justify-content: space-around;
   text-align: center;
   align-items: center;
+  font-size: x-small;
 }
 
 .navbar .information{
@@ -47,19 +67,30 @@ body{
   text-align: right;
   flex-direction: row;
   justify-content: space-around;
-  font-family: boulder;
+  font-family: trail;
 }
 
 .planet{
-  font-family: boulder;
-  font-size: 3em;
-  position: absolute;
   display: flex;
+  flex-direction: column;
+  width: 100%;
   text-align: center;
-  margin-left: 42%;
-  margin-top: -4%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: -3%;
 }
 
-h1{
-  text-align: center;
+.planet h1{
+  font-size: 5em;
+  font-family: soft;
+}
+
+.planet button{
+  width: max-content;
+  margin-top: -2%;
+  padding: 10px;
+  font-family: without;
+  background-color: beige;
+  border: none
 }

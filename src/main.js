@@ -16,7 +16,7 @@ const near = 0.1
 const far = 700
 
 const camera = new THREE.PerspectiveCamera(fov,aspect,near,far)
-camera.position.z = 8;
+camera.position.z = 6.9;
 
 //making a loader
 const loader = new THREE.TextureLoader()
