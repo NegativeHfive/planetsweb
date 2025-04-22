@@ -46,13 +46,12 @@ canvas{
   z-index: -1;
 }
 
-.planet img{
-  width: 10%;
+
+.planet{
+  width: 50%;
 }
 
-.firstdiv{
-  display:flex;
-  flex-direction: row;
-  width: 30%;
-  justify-content: space-around;
+.planet h1{
+  font-family: soft;
+  font-size: 6em;
 }
