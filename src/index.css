@@ -66,6 +66,7 @@ canvas{
 
 @media(max-width:1000px){
   canvas{
+    width: 20%;
     left: 60%;
     z-index: 100;
   }
