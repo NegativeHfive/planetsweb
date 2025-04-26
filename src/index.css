@@ -63,3 +63,9 @@ canvas{
   font-family: trail;
   font-size: x-small;
 }
+
+@media(max-width:1000px){
+  canvas{
+    left: 32%;
+  }
+}
