@@ -39,36 +39,41 @@ body{
 
 canvas{
   position: absolute;
-  top: 10%;
-  left: 28%;
+  top: 20%;
   width: 100%;
   height: 100%;
   z-index: -1;
 }
 
-
 .planet{
-  width: 50%;
-  margin-top: 20%;
-  margin-left: 2%;
-  font-size: smaller;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+}
+
+.planet button{
+  width: max-content;
+  padding: 10px;
+  font-family: trail;
+  margin-top: 2%;
 }
 
 .planet h1{
   font-family: soft;
-  font-size: 6em;
+  font-size: 5em;
+  margin-top: 3%;
 }
 
-.planet .information{
+.planet .logo{
   font-family: trail;
   font-size: x-small;
 }
 
-@media(max-width:1000px){
-  canvas{
-    width: 20%;
-    left: 60%;
-    z-index: 100;
-  }
-  
+.planet .information{
+  width: 40%;
+  font-size: x-small;
+  font-family: trail;
+  margin-top: -2%;
 }

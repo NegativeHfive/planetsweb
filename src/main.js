@@ -1,6 +1,7 @@
 import "../src/index.css";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import * as THREE from "three";
+import getStarfield from './getStarfield';
 
 const scene = new THREE.Scene()
 
@@ -16,7 +17,7 @@ const near = 0.1
 const far = 700
 
 const camera = new THREE.PerspectiveCamera(fov,aspect,near,far)
-camera.position.z = 7;
+camera.position.z = 7.3;
 
 //making a loader
 const loader = new THREE.TextureLoader()
@@ -54,6 +55,10 @@ const neptuneMaterial = new THREE.MeshBasicMaterial({
 
 const neptuneMesh = new THREE.Mesh(neptuneGeometry,neptuneMaterial);
 neptuneGroup.add(neptuneMesh)
+
+//getting the stars
+const stars = getStarfield({numStars:1000});
+scene.add(stars)
 
 function animate() {
   requestAnimationFrame(animate);
