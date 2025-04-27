@@ -116,4 +116,4 @@ function animateJupiter(){
 
 
 // the function for the next button for moving to next planets
-if
+
