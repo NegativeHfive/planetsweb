@@ -58,12 +58,15 @@ canvas{
   padding: 10px;
   font-family: trail;
   margin-top: 2%;
+  background-color: rgb(219, 117, 50);
+  border: none;
 }
 
 .planet h1{
   font-family: soft;
   font-size: 5em;
   margin-top: -0.4%;
+  color: rgb(219, 117, 50);
 }
 
 .planet .logo{
