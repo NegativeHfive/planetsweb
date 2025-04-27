@@ -3,6 +3,17 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import * as THREE from "three";
 import getStarfield from './getStarfield';
 
+// html texts
+const planetName = document.querySelector(".planetname");
+const information = document.querySelector(".information");
+const distanceFromEarthKm = document.querySelector("distanceKm");
+const nextPlanetText = document.querySelector(".nextplanettext");
+const atmosphere = document.querySelector(".atmosphere");
+const element = document.querySelector(".element")
+
+const nextButton = document.querySelector(".nextbutton");
+
+//making a scene
 const scene = new THREE.Scene()
 
 const renderer = new THREE.WebGLRenderer();
@@ -24,7 +35,7 @@ const loader = new THREE.TextureLoader()
 
 //mesh for mars
 const marsGroup = new THREE.Group()
-marsGroup.position.set(0,0,3)
+marsGroup.position.set(0,0,3) //3
 scene.add(marsGroup)
 
 //making the geometry for the mars 
@@ -43,7 +54,7 @@ marsGroup.add(marsMesh)
 
 //neptune
 const neptuneGroup = new THREE.Group()
-neptuneGroup.position.set(0,0,-20)
+neptuneGroup.position.set(0,0,-20)//-20
 scene.add(neptuneGroup)
 
 const neptuneGeometry = new THREE.IcosahedronGeometry(1,20)
@@ -56,16 +67,53 @@ const neptuneMaterial = new THREE.MeshBasicMaterial({
 const neptuneMesh = new THREE.Mesh(neptuneGeometry,neptuneMaterial);
 neptuneGroup.add(neptuneMesh)
 
+// jupiter planet
+const jupiterGroup = new THREE.Group()
+jupiterGroup.position.set(0,0,-40)//-40
+scene.add(jupiterGroup)
+
+const jupiterGeometry = new THREE.IcosahedronGeometry(1,20)
+const jupiterTexture = loader.load("/textures/jupiter.jpg");
+const jupiterMaterial = new THREE.MeshBasicMaterial({
+  map: jupiterTexture,
+  color: "rgb(245, 213, 159)",
+});
+
+const jupiterMesh = new THREE.Mesh(jupiterGeometry,jupiterMaterial);
+jupiterGroup.add(jupiterMesh)
+
+
 //getting the stars
 const stars = getStarfield({numStars:1000});
 scene.add(stars)
 
-function animate() {
-  requestAnimationFrame(animate);
+function animateMars() {
+  requestAnimationFrame(animateMars);
   marsGroup.rotation.y += 0.001;
-  neptuneMesh.rotation.y += 0.001;
+  //neptuneMesh.rotation.y += 0.007;
 
   renderer.render(scene, camera);
 }
 
-animate();
+animateMars();
+
+//function for neptune
+function animateNeptune() {
+  requestAnimationFrame(animateNeptune);
+  neptuneMesh.rotation.y += 0.007;
+
+  renderer.render(scene, camera);
+}
+
+
+// function for jupiter
+function animateJupiter(){
+  requestAnimationFrame(animateJupiter);
+  jupiterMesh.rotation.y += 0.001;
+
+  renderer.render(scene, camera);
+}
+
+
+// the function for the next button for moving to next planets
+if
