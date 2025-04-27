@@ -110,6 +110,6 @@ canvas{
 @media(max-width : 1000px){
   .chemicals{
     font-size: smaller;
-    margin-top: 90%;
+    margin-top: 100%;
   }
 }
