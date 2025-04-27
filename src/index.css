@@ -131,7 +131,7 @@ canvas{
   .chemicals{
     display: flex;
     justify-content: space-around;
-    width: 80%;
+    width: 100%;
     align-items: center;
     text-align: center;
     font-size: x-small;
