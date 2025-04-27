@@ -101,7 +101,27 @@ canvas{
 
 .nextplanet{
   margin-left: -4%;
+  font-family: boulder;
+  text-shadow: 1px 1px 1px black;
 }
+
+.nextplanet a{
+  color: white;
+  transition: all 1s ease-in-out;
+}
+
+.nextplanet a:hover{
+  color: beige;
+}
+
+.gas h2{
+  font-family: boulder;
+}
+
+.distance h2{
+  font-family: boulder;
+}
+
 
 .gas p{
   font-size: x-small;
@@ -109,7 +129,19 @@ canvas{
 
 @media(max-width : 1000px){
   .chemicals{
-    font-size: smaller;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    align-items: center;
+    text-align: center;
+    font-size: x-small;
+    margin: 0 auto;
     margin-top: 100%;
+  }
+
+  .nextplanet{
+    font-size: x-small;
+    font-family: boulder;
+    text-shadow: 1px 1px 1px black;
   }
 }
