@@ -83,3 +83,26 @@ canvas{
     margin-top: -7%;
   }
 }
+
+.chemicals{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+  margin-top: 33%;
+  font-family: trail;
+}
+
+.distance p{
+  font-size: x-small;
+}
+
+.nextplanet{
+  margin-left: -4%;
+}
+
+.gas p{
+  font-size: x-small;
+}
