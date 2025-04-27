@@ -78,7 +78,7 @@ canvas{
   margin-top: -3%;
 }
 
-@media(max-width < 1000px){
+@media(max-width : 1000px){
   .information{
     margin-top: -7%;
   }
