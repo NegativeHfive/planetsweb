@@ -112,6 +112,37 @@ saturnRingMesh.position.z = 0;
 saturnGroup.add(saturnRingMesh);
 
 
+// moon planet
+const moonGroup = new THREE.Group()
+moonGroup.position.set(0,0,-60)
+scene.add(moonGroup)
+
+const moonGeometry = new THREE.IcosahedronGeometry(1,20)
+const moonMaterial = new THREE.MeshBasicMaterial({
+  map: loader.load("/textures/moon.jpg"),
+  color: "rgb(255, 255, 255)"
+});
+
+const moonMesh = new THREE.Mesh(moonGeometry,moonMaterial)
+moonGroup.add(moonMesh)
+
+
+//earth planet
+const earthGroup = new THREE.Group()
+earthGroup.position.x = 15
+earthGroup.rotation.z = -23.7 * Math.PI / 360
+scene.add(earthGroup)
+
+const earthGeometry = new THREE.IcosahedronGeometry(1,20)
+const earthMaterial = new THREE.MeshBasicMaterial({
+  map: loader.load("/textures/earthy.jpg")
+});
+
+const earthMesh = new THREE.Mesh(earthGeometry,earthMaterial)
+earthMesh.scale.setScalar(1.001)
+earthGroup.add(earthMesh)
+
+
 //getting the stars
 const stars = getStarfield({numStars:1000});
 scene.add(stars)
@@ -150,6 +181,19 @@ function animateSaturn() {
   renderer.render(scene, camera);
 }
 
+function animateMoon(){
+  requestAnimationFrame(animateMoon);
+  moonGroup.rotation.y += 0.0005;
+
+  renderer.render(scene, camera);
+}
+
+function animateEarth(){
+  requestAnimationFrame(animateEarth);
+  earthGroup.rotation.z += 0.00006;
+
+  renderer.render(scene, camera);
+}
 
 // the function for the next button for moving to next planets
 nextButton.addEventListener("click",()=>{
@@ -242,7 +286,7 @@ nextButton.addEventListener("click",()=>{
     planetName.style.color = "rgb(214, 201, 179)";
     nextButton.style.backgroundColor = "rgb(214, 201, 179)";
 
-    //animating mars moving out of the view
+    //animating jupiter moving out of the view
     gsap.to(jupiterGroup.position, {
       x: 0,
       y: 0,
@@ -251,7 +295,7 @@ nextButton.addEventListener("click",()=>{
       ease: "power3.inOut",
     });
 
-    //bringin neptune to the front
+    //bringin saturn to the front
     gsap.to(saturnGroup.position, {
       x: 0,
       y: 0,
@@ -264,6 +308,110 @@ nextButton.addEventListener("click",()=>{
     });
   }
 
+  // earth
+  else if (planetName.innerHTML === "Saturn") {
+    // testing if it works
+    console.log("The current planet is Moon");
+
+    //text for neptune
+    planetName.innerHTML = "Moon";
+    information.innerHTML =
+      "The Moon is Earth's only natural satellite. It orbits at an average distance of 384399 km";
+    distanceFromEarthKm.innerHTML = "384399 km";
+    nextPlanetText.innerHTML = "NEXT PLANET IS MOON";
+    element.innerHTML = "A";
+    planetName.style.color = "rgb(230, 220, 204)";
+    nextButton.style.backgroundColor = "rgb(235, 230, 220)";
+
+    //animating jupiter moving out of the view
+    gsap.to(saturnGroup.position, {
+      x: 0,
+      y: 0,
+      z: 100,
+      duration: 5,
+      ease: "power3.inOut",
+    });
+
+    //bringin saturn to the front
+    gsap.to(moonGroup.position, {
+      x: 0,
+      y: 0,
+      z: 3,
+      duration: 5,
+      ease: "power3.inOut",
+      onComplete: () => {
+        animateMoon();
+      },
+    });
+  } else if (planetName.innerHTML === "Moon") {
+    // testing if it works
+    console.log("The current planet is Earth");
+
+    //text for neptune
+    planetName.innerHTML = "Earth";
+    information.innerHTML =
+      "Earth is the third planet from the Sun and the only astronomical object known to harbor life. This is enabled by Earth being an ocean world";
+    distanceFromEarthKm.innerHTML = "0";
+    nextPlanetText.innerHTML = "NEXT PLANET IS MARS";
+    element.innerHTML = "O";
+    planetName.style.color = "rgb(7, 111, 168)";
+    nextButton.style.backgroundColor = "rgb(7, 111, 168)";
+
+    //animating jupiter moving out of the view
+    gsap.to(moonGroup.position, {
+      x: 0,
+      y: 0,
+      z: 100,
+      duration: 5,
+      ease: "power3.inOut",
+    });
+
+    //bringin saturn to the front
+    gsap.to(earthGroup.position, {
+      x: 0,
+      y: 0,
+      z: 3,
+      duration: 5,
+      ease: "power3.inOut",
+      onComplete: () => {
+        animateEarth();
+      },
+    });
+  } else if (planetName.innerHTML === "Earth") {
+    // testing if it works
+    console.log("The current planet is Earth");
+
+    //text for neptune
+    planetName.innerHTML = "Mars";
+    information.innerHTML =
+      "Mars is the fourth planet from the Sun. It is known as the Red Planet due to its rusty color. Mars has a very thin atmosphere.";
+    distanceFromEarthKm.innerHTML = "250 km";
+    nextPlanetText.innerHTML = "NEXT PLANET IS NEPTUNE";
+    element.innerHTML = "C";
+    planetName.style.color = "rgb(219, 117, 50)";
+    nextButton.style.backgroundColor = "rgb(219, 117, 50)";
+
+    //animating jupiter moving out of the view
+    gsap.to(earthGroup.position, {
+      x: 0,
+      y: 0,
+      z: 100,
+      duration: 5,
+      ease: "power3.inOut",
+    });
+
+    //bringin saturn to the front
+    gsap.to(marsGroup.position, {
+      x: 0,
+      y: 0,
+      z: 3,
+      duration: 5,
+      ease: "power3.inOut",
+      onComplete: () => {
+        animateEarth();
+      },
+    });
+  }
 
 })
 
