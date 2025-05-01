@@ -14,6 +14,10 @@ _Live Example: https://vite-react-example.vercel.app_
 
 ### Deploying From Your Terminal
 
+
+https://github.com/user-attachments/assets/eb873d7d-83bf-48b6-86a9-c06bdb3ce8de
+
+
 You can deploy your new Vite project with a single command from your terminal using [Vercel CLI](https://vercel.com/download):
 
 ```shell
