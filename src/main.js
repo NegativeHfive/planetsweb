@@ -190,7 +190,7 @@ function animateMoon(){
 
 function animateEarth(){
   requestAnimationFrame(animateEarth);
-  earthGroup.rotation.z += 0.00006;
+  earthGroup.rotation.z += 0.0001;
 
   renderer.render(scene, camera);
 }
